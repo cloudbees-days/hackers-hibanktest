@@ -4,7 +4,7 @@
       <div class="columns is-centered">
         <div class="column is-6">
           <div class="box">
-            <h1 class="title is-2">Login to Hackers News</h1>
+            <h1 class="title is-2">Login</h1>
             <hr class="hr">
             <form class="form" @submit="login({username, password})" @submit.prevent>
               <div class="field">
