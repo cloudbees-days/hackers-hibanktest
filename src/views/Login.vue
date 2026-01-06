@@ -4,7 +4,7 @@
       <div class="columns is-centered">
         <div class="column is-6">
           <div class="box">
-            <h1 class="title is-2">Login</h1>
+            <h1 class="title is-2">Login to Hackers News</h1>
             <hr class="hr">
             <form class="form" @submit="login({username, password})" @submit.prevent>
               <div class="field">
@@ -20,7 +20,7 @@
                 </div>
               </div>
               <div class="field">
-                <button class="button is-dark">Login to Hackers News</button>
+                <button class="button is-dark">Login</button>
               </div>
               <p><a><small @click="normalUser">Normal user: normaluser/normaluser</small></a></p>
               <p><a><small @click="betaUser">Beta user: betauser/betauser</small></a></p>
