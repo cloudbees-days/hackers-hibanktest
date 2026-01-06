@@ -91,9 +91,9 @@ jobs:
         id: register-artifact
         uses: cloudbees-io/register-build-artifact@v2
         with:
-          name: "ldonleycb/hackers-organized"
-          version: "${{ cloudbees.scm.sha }}"
-          url: "${{ secrets.DOCKERHUB_USER }}/hackers-organized:${{ cloudbees.scm.sha }}"
+          name: ldonleycb/hackers-organized
+          version: ${{ cloudbees.scm.sha }}
+          url: ${{ secrets.DOCKERHUB_USER }}/hackers-organized:${{ cloudbees.scm.sha }}
       - name: Publish evidence
         uses: cloudbees-io/publish-evidence-item@v1
         with:
@@ -131,21 +131,6 @@ jobs:
           language: LANGUAGE_JS
           cover-file-name: coverage/clover.xml
           sonar-exclusion: tests/*
-      - uses: cloudbees-io/snyk-sast-scan-code@v1
-        name: Synk SAST
-        kind: scan
-        continue-on-error: true
-        with:
-          orgname: ${{ secrets.SNYK_ORGNAME }}
-          token: ${{ secrets.SNYK_TOKEN }}
-          language: LANGUAGE_JS
-      - name: Scan with Snyk SCA
-        uses: cloudbees-io/snyk-sca-scan-dependency@v1
-        continue-on-error: true
-        with:
-          orgname: ${{ secrets.SNYK_ORGNAME }}
-          token: ${{ secrets.SNYK_TOKEN }}
-          language: LANGUAGE_JS
       - name: Fetch SonarQube Issues
         id: FetchSonarQubeIssues
         uses: docker://alpine/git:latest
@@ -206,7 +191,7 @@ jobs:
         uses: cloudbees-io/register-deployed-artifact@v2
         with:
           artifact-id: ${{ needs.build-container-image.outputs.ARTIFACT_ID }}
-          target-environment: "DOW Production"
+          target-environment: DOW Production
     needs:
       - build-container-image
       - scan
