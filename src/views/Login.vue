@@ -20,7 +20,7 @@
                 </div>
               </div>
               <div class="field">
-                <button class="button is-dark">Login</button>
+                <button class="button is-dark">Login to Hackers News</button>
               </div>
               <p><a><small @click="normalUser">Normal user: normaluser/normaluser</small></a></p>
               <p><a><small @click="betaUser">Beta user: betauser/betauser</small></a></p>
